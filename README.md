@@ -12,6 +12,8 @@ It is useful when you want a cleaned-up synthetic device that exposes temperatur
 - Updates automatically when the source temperature or battery sensor changes.
 - Uses the source temperature sensor unit, including Celsius or Fahrenheit.
 - Provides a config flow and options flow in the Home Assistant UI.
+- Ships a local brand icon for Home Assistant versions that support custom
+  integration brand assets.
 - Exposes measured values only and does not provide temperature controls.
 
 ## Installation
@@ -22,6 +24,8 @@ Copy this integration directory into your Home Assistant `custom_components` dir
 config/
   custom_components/
     synthetic_temp_sensor/
+      brand/
+        icon.png
       __init__.py
       config_flow.py
       const.py

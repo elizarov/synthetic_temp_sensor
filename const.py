@@ -3,7 +3,7 @@
 from homeassistant.const import CONF_NAME, CONF_UNIQUE_ID
 
 DOMAIN = "synthetic_climate"
-PLATFORMS = ["climate"]
+PLATFORMS = ["climate", "sensor"]
 
 CONF_TEMPERATURE_ENTITY = "temperature_entity"
 CONF_BATTERY_ENTITY = "battery_entity"

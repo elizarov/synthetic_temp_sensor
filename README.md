@@ -7,7 +7,8 @@ It is useful when a temperature sensor should appear in Home Assistant as a clim
 ## Features
 
 - Creates one `climate` entity from a configured temperature sensor.
-- Optionally links a battery sensor and exposes its value as extra state attributes.
+- Optionally mirrors a battery sensor as a diagnostic battery entity on the synthetic device.
+- Exposes source entity IDs as extra state attributes for traceability.
 - Updates automatically when the source temperature or battery sensor changes.
 - Uses the source temperature sensor unit, including Celsius or Fahrenheit.
 - Provides a config flow and options flow in the Home Assistant UI.
@@ -26,6 +27,7 @@ config/
       config_flow.py
       const.py
       manifest.json
+      sensor.py
       strings.json
       translations/
 ```
@@ -51,17 +53,23 @@ Restart Home Assistant after copying the files.
    - **Battery sensor**: Optional source sensor that provides battery level.
 6. Submit the form.
 
-Home Assistant will create a climate entity that mirrors the selected temperature sensor.
+Home Assistant will create a climate entity that mirrors the selected temperature sensor. If a battery sensor is configured, it will also create a diagnostic battery sensor attached to the same synthetic device.
 
 ## Usage
 
 Use the generated climate entity anywhere Home Assistant accepts climate entities, such as dashboards, automations, templates, or scripts.
 
-The entity reports:
+The climate entity reports:
 
 - `current_temperature` from the configured temperature sensor.
 - `temperature_entity_id` as an extra state attribute.
 - `battery_entity_id`, `battery_level`, and `battery_unit` when a battery sensor is configured.
+
+When a battery sensor is configured, the integration also creates a separate battery entity with:
+
+- `device_class` set to `battery`.
+- Unit set to `%`.
+- `battery_entity_id` as an extra state attribute.
 
 The climate entity does not heat, cool, or control another device. It is intentionally read-only and reports `off` for HVAC mode and HVAC action.
 

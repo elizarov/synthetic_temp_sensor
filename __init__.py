@@ -1,4 +1,4 @@
-"""Synthetic Climate integration."""
+"""Synthetic Temp Sensor integration."""
 
 from __future__ import annotations
 
@@ -12,7 +12,7 @@ from .const import DOMAIN, PLATFORMS
 async def async_setup_entry(
     hass: HomeAssistant, entry: ConfigEntry
 ) -> bool:
-    """Set up Synthetic Climate from a config entry."""
+    """Set up Synthetic Temp Sensor from a config entry."""
     await hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)
     entry.async_on_unload(entry.add_update_listener(_async_update_listener))
     return True

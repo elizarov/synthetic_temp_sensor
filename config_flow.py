@@ -1,4 +1,4 @@
-"""Config flow for Synthetic Climate."""
+"""Config flow for Synthetic Temp Sensor."""
 
 from __future__ import annotations
 
@@ -49,8 +49,8 @@ def _schema(defaults: dict[str, Any] | None = None) -> vol.Schema:
     )
 
 
-class SyntheticClimateConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
-    """Handle a config flow for Synthetic Climate."""
+class SyntheticTempSensorConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
+    """Handle a config flow for Synthetic Temp Sensor."""
 
     VERSION = 1
 
@@ -87,11 +87,11 @@ class SyntheticClimateConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         config_entry: config_entries.ConfigEntry,
     ) -> config_entries.OptionsFlow:
         """Create the options flow."""
-        return SyntheticClimateOptionsFlow(config_entry)
+        return SyntheticTempSensorOptionsFlow(config_entry)
 
 
-class SyntheticClimateOptionsFlow(config_entries.OptionsFlow):
-    """Handle options for Synthetic Climate."""
+class SyntheticTempSensorOptionsFlow(config_entries.OptionsFlow):
+    """Handle options for Synthetic Temp Sensor."""
 
     def __init__(self, config_entry: config_entries.ConfigEntry) -> None:
         """Initialize options flow."""

@@ -2,8 +2,8 @@
   "config": {
     "step": {
       "user": {
-        "title": "Synthetic Climate",
-        "description": "Create a read-only climate entity from temperature and battery sensors.",
+        "title": "Synthetic Temp Sensor",
+        "description": "Create dashboard-friendly sensor entities from temperature and battery sensors.",
         "data": {
           "name": "Name",
           "unique_id": "Unique ID",
@@ -16,7 +16,7 @@
   "options": {
     "step": {
       "init": {
-        "title": "Synthetic Climate options",
+        "title": "Synthetic Temp Sensor options",
         "data": {
           "name": "Name",
           "unique_id": "Unique ID",
